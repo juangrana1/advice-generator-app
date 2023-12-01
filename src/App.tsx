@@ -1,4 +1,5 @@
 import Divider from "./images/pattern-divider-desktop.svg";
+import DividerMobile from "./images/pattern-divider-mobile.svg";
 import Dice from "./images/icon-dice.svg";
 import { useEffect, useState, useTransition } from "react";
 
@@ -15,6 +16,9 @@ function App() {
   });
   const [randomId, setRandomId] = useState<number>(randomNumber);
   const [isLoading, setIsLoading] = useState(true);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  const mobileWidth = 600;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,6 +36,15 @@ function App() {
     };
     fetchData();
   }, [randomId, setFetchedData, setIsLoading]);
+
+  useEffect(() => {
+    const handleResizeWindow = () => setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", handleResizeWindow);
+
+    return () => {
+      window.removeEventListener("resize", handleResizeWindow);
+    };
+  }, [window.innerWidth]);
 
   const [isPending, startTransition] = useTransition();
 
@@ -54,7 +67,11 @@ function App() {
         ) : (
           <div className="loading">LOADING</div>
         )}
-        <img src={Divider} alt="Divider" className="divider" />
+        {screenWidth <= mobileWidth ? (
+          <img src={DividerMobile} alt="Divider" className="divider" />
+        ) : (
+          <img src={Divider} alt="Divider" className="divider" />
+        )}
         <button className="button" onClick={randomizeAdvice}>
           <img src={Dice} alt="Dice" className="button__content" />
         </button>
