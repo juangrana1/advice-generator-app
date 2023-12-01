@@ -1,0 +1,96 @@
+// Colors
+$color-light-cyan: hsl(193, 38%, 86%);
+$color-neon-green: hsl(150, 100%, 66%);
+
+$color-grayish-blue: hsl(217, 19%, 38%);
+$color-d-grayish-blue: hsl(217, 19%, 24%);
+$color-d-blue: hsl(218, 23%, 16%);
+
+// Font
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+}
+
+.background {
+  background-color: #202632;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: #313b47;
+  padding: 2.75rem;
+  position: relative;
+  border-radius: 1rem;
+  min-height: 330px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.advice-number {
+  color: #53ffab;
+  font-size: 1rem;
+  letter-spacing: 3px;
+  margin-bottom: 1.5rem;
+}
+
+.advice {
+  font-size: 2rem;
+  text-align: center;
+  color: $color-light-cyan;
+  width: 540px;
+}
+
+.divider {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.button {
+  border: none;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  bottom: -2rem;
+  background-color: $color-neon-green;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 6px 3px rgba($color-neon-green, .4), 0 0 20px 16px rgba($color-neon-green, .15);
+  }
+
+  &__content {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.loading {
+    color: #53ffab;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;   
+}
